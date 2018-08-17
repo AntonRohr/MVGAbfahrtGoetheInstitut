@@ -12,6 +12,10 @@
 		B28F00AF2126F058006CB544 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28F00AD2126F058006CB544 /* Main.storyboard */; };
 		B28F00B12126F05A006CB544 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B28F00B02126F05A006CB544 /* Assets.xcassets */; };
 		B28F00B42126F05A006CB544 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28F00B22126F05A006CB544 /* LaunchScreen.storyboard */; };
+		B28F00BC2126F4AF006CB544 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F00BB2126F4AF006CB544 /* Departure.swift */; };
+		B28F00BE2126F4FF006CB544 /* MVGJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F00BD2126F4FF006CB544 /* MVGJson.swift */; };
+		B28F00C12126FD66006CB544 /* DepartureCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F00BF2126FD66006CB544 /* DepartureCellTableViewCell.swift */; };
+		B28F00C22126FD66006CB544 /* DepartureCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28F00C02126FD66006CB544 /* DepartureCellTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		B28F00B02126F05A006CB544 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B28F00B32126F05A006CB544 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B28F00B52126F05A006CB544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B28F00BB2126F4AF006CB544 /* Departure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
+		B28F00BD2126F4FF006CB544 /* MVGJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVGJson.swift; sourceTree = "<group>"; };
+		B28F00BF2126FD66006CB544 /* DepartureCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureCellTableViewCell.swift; sourceTree = "<group>"; };
+		B28F00C02126FD66006CB544 /* DepartureCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureCellTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +65,13 @@
 				B28F00A92126F058006CB544 /* AppDelegate.swift */,
 				B28F00AB2126F058006CB544 /* ViewController.swift */,
 				B28F00AD2126F058006CB544 /* Main.storyboard */,
+				B28F00BF2126FD66006CB544 /* DepartureCellTableViewCell.swift */,
+				B28F00C02126FD66006CB544 /* DepartureCellTableViewCell.xib */,
 				B28F00B02126F05A006CB544 /* Assets.xcassets */,
 				B28F00B22126F05A006CB544 /* LaunchScreen.storyboard */,
 				B28F00B52126F05A006CB544 /* Info.plist */,
+				B28F00BB2126F4AF006CB544 /* Departure.swift */,
+				B28F00BD2126F4FF006CB544 /* MVGJson.swift */,
 			);
 			path = "MVG Abfahrt Goethe Institut";
 			sourceTree = "<group>";
@@ -124,6 +136,7 @@
 			files = (
 				B28F00B42126F05A006CB544 /* LaunchScreen.storyboard in Resources */,
 				B28F00B12126F05A006CB544 /* Assets.xcassets in Resources */,
+				B28F00C22126FD66006CB544 /* DepartureCellTableViewCell.xib in Resources */,
 				B28F00AF2126F058006CB544 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28F00BE2126F4FF006CB544 /* MVGJson.swift in Sources */,
+				B28F00C12126FD66006CB544 /* DepartureCellTableViewCell.swift in Sources */,
+				B28F00BC2126F4AF006CB544 /* Departure.swift in Sources */,
 				B28F00AC2126F058006CB544 /* ViewController.swift in Sources */,
 				B28F00AA2126F058006CB544 /* AppDelegate.swift in Sources */,
 			);
@@ -285,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 393BY2NHZG;
 				INFOPLIST_FILE = "MVG Abfahrt Goethe Institut/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 393BY2NHZG;
 				INFOPLIST_FILE = "MVG Abfahrt Goethe Institut/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
