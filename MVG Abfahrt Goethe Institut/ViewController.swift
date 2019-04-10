@@ -32,14 +32,14 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
             
             guard let mvgJson = self.mvgJson, let departure = mvgJson.departures.filter({ (departure) -> Bool in
-                return departure.destination.lowercased().contains("karlsplatz") && departure.departureTime.timeIntervalSinceNow > 0
+                let name = departure.destination.lowercased()
+                return name.contains("karls") || name.contains("veit") || name.contains("einstein")
             }).first else {
                 self.nextTimeLabel.text = ""
                 return
             }
             
             self.nextTimeLabel.text = departure.leavesIn
-            
         }
         
         requestMVGData()
