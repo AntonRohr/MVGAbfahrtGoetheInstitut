@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             
             guard let mvgJson = self.mvgJson, let departure = mvgJson.departures.filter({ (departure) -> Bool in
                 let name = departure.destination.lowercased()
-                return name.contains("karls") || name.contains("veit") || name.contains("einstein")
+                return name.contains("karls") || name.contains("veit") || name.contains("einstein") || name.contains("hauptbahnhof")
             }).first else {
                 self.nextTimeLabel.text = ""
                 return
