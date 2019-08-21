@@ -1,0 +1,100 @@
+# OPTIONS
+
+# no allman formatting; https://en.wikipedia.org/wiki/Indentation_style#Allman_style
+--allman false
+
+# include underscores every 4 bit in an binary literal with size >= 8
+--binarygrouping 4,8
+
+# in multiline parameters put ending parentheses in new line
+--closingparen balanced
+
+# add trailing commas in multiline literals (produces nicer diffs)
+--commas always
+
+# no formatting for files with conflict markers 
+--conflictmarkers reject
+
+# include underscores every 3 digits in an number literal with size >= 6
+--decimalgrouping 3,6
+
+# else in the same line as parentheses
+--elseposition same-line
+
+# use Void instead of ()
+--empty void
+
+# use lowercase e in exponential number literals
+--exponentcase lowercase
+
+# don't group numbers after the exponent e
+--exponentgrouping disabled
+
+# don't group numbers after the "."
+--fractiongrouping disabled
+
+# input is not part of a larger file
+--fragment false
+
+# don't touch header comments
+--header ignore
+
+# include underscores every 4 digits in an hexadecimal literal with size >= 8
+--hexgrouping none
+
+# use uppercase in hexadecimal literals
+--hexliteralcase uppercase
+
+# indent compiler if definitions
+--ifdef indent
+
+# sort imports alphabetically
+--importgrouping alphabetized
+
+# indent using tabs
+--indent tab
+
+# do not indent cases inside a switch statement
+--indentcase false
+
+# standard unix line break via \n (line-feed)
+--linebreaks lf
+
+# include underscores every 4 digits in an octal literal with size >= 8
+--octalgrouping 4,8
+
+# add space after a operator definition
+--operatorfunc spaced
+
+# use "hoist" placement for let/var in pattern matching
+--patternlet hoist
+
+# use spaces in ranges
+--ranges spaced
+
+# use explicit self everywhere
+--self insert
+
+# not needed with --self insert
+# --selfrequired 
+
+# do not use semicolons ever
+--semicolons never
+
+# remove arguments that are not used in functions and closures
+--stripunusedargs always
+
+# currently not needed
+--trailingclosures 
+
+# remove unneeded whitespacec at the end of lines
+--trimwhitespace always
+
+# wrap all multiline arguments (instead of wrapping after the first)
+--wraparguments before-first
+
+# wrap all multiline literal elements (instead of wrapping after the first)
+--wrapcollections before-first
+
+# don't use the weird xcode indentation for guard/enum statements
+--xcodeindentation disabled

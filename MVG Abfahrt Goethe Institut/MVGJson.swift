@@ -8,9 +8,6 @@
 
 import Foundation
 
-
 struct MVGJson: Codable {
-    
-    let departures: [Departure]
-    
+	let departures: [Departure]
 }

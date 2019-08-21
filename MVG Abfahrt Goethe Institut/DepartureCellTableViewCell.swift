@@ -9,29 +9,23 @@
 import UIKit
 
 class DepartureCellTableViewCell: UITableViewCell {
+	@IBOutlet var destinationLabel: UILabel!
+	@IBOutlet var timeLabel: UILabel!
 
-    @IBOutlet var destinationLabel: UILabel!
-    @IBOutlet var timeLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		// Initialization code
+	}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+	override func setSelected(_ selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
-    
-    func setDeparture(_ departure: Departure) {
-        
-        destinationLabel.text = departure.destination
-        
-        timeLabel.text = departure.leavesIn
-        
-        
-        
-    }
-    
+		// Configure the view for the selected state
+	}
+
+	func setDeparture(_ departure: Departure) {
+		self.destinationLabel.text = departure.destination
+
+		self.timeLabel.text = departure.leavesIn
+	}
 }

@@ -9,18 +9,15 @@
 import Foundation
 
 struct Departure: Codable {
-    
-    static let formatter = DateComponentsFormatter()
-    static func setUp() {
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .abbreviated
-    }
-    
-    
-    let destination: String
-    let departureTime: Date
-    var leavesIn: String {
-        return Departure.formatter.string(from: departureTime.timeIntervalSinceNow)!
-    }
-    
+	static let formatter = DateComponentsFormatter()
+	static func setUp() {
+		self.formatter.allowedUnits = [.hour, .minute, .second]
+		self.formatter.unitsStyle = .abbreviated
+	}
+
+	let destination: String
+	let departureTime: Date
+	var leavesIn: String {
+		return Departure.formatter.string(from: self.departureTime.timeIntervalSinceNow)!
+	}
 }
