@@ -19,7 +19,10 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 
 		self.tableView.dataSource = self
-		self.tableView.register(UINib(nibName: "DepartureCellTableViewCell", bundle: nil), forCellReuseIdentifier: "departureCell")
+		self.tableView.register(
+			UINib(nibName: "DepartureCellTableViewCell", bundle: nil),
+			forCellReuseIdentifier: "departureCell"
+		)
 
 		Departure.setUp()
 
@@ -44,7 +47,9 @@ class ViewController: UIViewController {
 		self.requestMVGData()
 
 		UIDevice.current.isBatteryMonitoringEnabled = true
-		NotificationCenter.default.addObserver(forName: UIDevice.batteryStateDidChangeNotification, object: nil, queue: nil) { _ in
+		NotificationCenter.default.addObserver(
+			forName: UIDevice.batteryStateDidChangeNotification, object: nil, queue: nil
+		) { _ in
 			self.triggerBatteryChanged()
 		}
 		self.triggerBatteryChanged()
@@ -108,7 +113,9 @@ extension ViewController: UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "departureCell") as! DepartureCellTableViewCell
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "departureCell") as? DepartureCellTableViewCell else {
+			fatalError("Semantic Error: dequeueReusableCell returned something that is not DepartureCellTableViewCell")
+		}
 
 		if let departure = mvgJson?.departures[indexPath.row] {
 			cell.setDeparture(departure)
