@@ -77,13 +77,12 @@ class ViewController: UIViewController {
 	}
 
 	func requestMVGData() {
-		guard let url = URL(string: "https://www.mvg.de/fahrinfo/api/departure/307") else {
+		guard let url = URL(string: "https://www.mvg.de/api/fahrinfo/departure/307") else {
 			print("url not valid")
 			return
 		}
 		var request = URLRequest(url: url)
 		request.httpMethod = "GET"
-		request.addValue("5af1beca494712ed38d313714d4caff6", forHTTPHeaderField: "X-MVG-Authorization-Key")
 
 		let task = URLSession.shared.dataTask(with: request) { data, response, error in
 			guard let data = data else {
