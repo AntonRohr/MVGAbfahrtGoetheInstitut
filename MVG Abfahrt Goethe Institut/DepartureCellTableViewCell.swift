@@ -25,7 +25,15 @@ class DepartureCellTableViewCell: UITableViewCell {
 
 	func setDeparture(_ departure: Departure) {
 		self.destinationLabel.text = departure.destination
+        self.timeLabel.text = departure.leavesIn
 
-		self.timeLabel.text = departure.leavesIn
+        if isCorrectDirection(name: departure.destination) {
+            self.destinationLabel.font = UIFont.boldSystemFont(ofSize: 17)
+            self.timeLabel.font = UIFont.systemFont(ofSize: 22)
+        } else {
+            self.destinationLabel.font = UIFont.systemFont(ofSize: 13)
+            self.timeLabel.font = UIFont.systemFont(ofSize: 13)
+        }
+
 	}
 }

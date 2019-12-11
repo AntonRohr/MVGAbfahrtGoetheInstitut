@@ -8,6 +8,13 @@
 
 import UIKit
 
+let mvgUrl = URL(string: "https://www.mvg.de/api/fahrinfo/departure/de:09162:307")!
+var destHBFidentifiers = ["karls", "veit", "einstein", "hauptbahnhof"]
+
+func isCorrectDirection(name: String) -> Bool {
+    return destHBFidentifiers.contains { name.lowercased().contains($0) }
+}
+
 class ViewController: UIViewController {
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet var nextTimeLabel: UILabel!
@@ -23,6 +30,7 @@ class ViewController: UIViewController {
 			UINib(nibName: "DepartureCellTableViewCell", bundle: nil),
 			forCellReuseIdentifier: "departureCell"
 		)
+        self.tableView.delegate = self
 
 		Departure.setUp()
 
@@ -34,8 +42,7 @@ class ViewController: UIViewController {
 			self.tableView.reloadData()
 
 			guard let mvgJson = self.mvgJson, let departure = mvgJson.departures.filter({ (departure) -> Bool in
-				let name = departure.destination.lowercased()
-				return name.contains("karls") || name.contains("veit") || name.contains("einstein") || name.contains("hauptbahnhof")
+                return isCorrectDirection(name: departure.destination)
 			}).first else {
 				self.nextTimeLabel.text = ""
 				return
@@ -67,21 +74,14 @@ class ViewController: UIViewController {
 		switch UIDevice.current.batteryState {
 		case .unknown:
 			print("unknown battery state")
-		case .unplugged:
-			UIApplication.shared.isIdleTimerDisabled = false
-		case .charging:
-			UIApplication.shared.isIdleTimerDisabled = true
-		case .full:
+		default:
 			UIApplication.shared.isIdleTimerDisabled = true
 		}
 	}
 
 	func requestMVGData() {
-		guard let url = URL(string: "https://www.mvg.de/api/fahrinfo/departure/307") else {
-			print("url not valid")
-			return
-		}
-		var request = URLRequest(url: url)
+
+		var request = URLRequest(url: mvgUrl)
 		request.httpMethod = "GET"
 
 		let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -122,4 +122,20 @@ extension ViewController: UITableViewDataSource {
 
 		return cell
 	}
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        guard let departure = mvgJson?.departures[indexPath.row] else {
+            fatalError("clicked on non existent departure")
+        }
+
+        let name = departure.destination.lowercased()
+        if isCorrectDirection(name: name) {
+            destHBFidentifiers = destHBFidentifiers.filter { !name.contains($0) }
+        } else {
+            destHBFidentifiers.append(name)
+        }
+    }
 }
